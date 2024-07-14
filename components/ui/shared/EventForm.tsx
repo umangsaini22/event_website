@@ -17,7 +17,7 @@ import DatePicker from "react-datepicker";
 import { useUploadThing } from '@/lib/uploadthing'
 
 import "react-datepicker/dist/react-datepicker.css";
-//import { Checkbox } from "../ui/checkbox"
+import { Checkbox } from "@/components/ui/checkbox"
 import { useRouter } from "next/navigation"
 import { createEvent, updateEvent } from "@/lib/actions/event.actions"
 import { IEvent } from "@/lib/mongodb/database/models/event.model"
@@ -205,7 +205,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                       <p className="ml-3 whitespace-nowrap text-grey-600">Start Date:</p>
                       <DatePicker 
                         selected={field.value} 
-                        onChange={(date: Date) => field.onChange(date)} 
+                        onChange={(date: Date | null) => date && field.onChange(date)} 
                         showTimeSelect
                         timeInputLabel="Time:"
                         dateFormat="MM/dd/yyyy h:mm aa"
@@ -236,7 +236,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                       <p className="ml-3 whitespace-nowrap text-grey-600">End Date:</p>
                       <DatePicker 
                         selected={field.value} 
-                        onChange={(date: Date) => field.onChange(date)} 
+                        onChange={(date: Date | null) => field.onChange(date as Date)} 
                         showTimeSelect
                         timeInputLabel="Time:"
                         dateFormat="MM/dd/yyyy h:mm aa"
@@ -275,10 +275,10 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                             <FormControl>
                               <div className="flex items-center">
                                 <label htmlFor="isFree" className="whitespace-nowrap pr-3 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Free Ticket</label>
-                                {/* <Checkbox
+                                <Checkbox
                                   onCheckedChange={field.onChange}
                                   checked={field.value}
-                                id="isFree" className="mr-2 h-5 w-5 border-2 border-primary-500" /> */}
+                                id="isFree" className="mr-2 h-5 w-5 border-2 border-primary-500" />
                               </div>
           
                             </FormControl>
