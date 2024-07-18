@@ -149,7 +149,7 @@
 // }
 
 
-"user server"
+"use server"
 
 import Stripe from "stripe";
 import { CheckoutOrderParams, CreateOrderParams } from "@/types"
