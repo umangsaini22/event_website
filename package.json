@@ -41,6 +41,7 @@
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "uploadthing": "^6.13.2",
+    "url-search-params-polyfill": "^8.2.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
